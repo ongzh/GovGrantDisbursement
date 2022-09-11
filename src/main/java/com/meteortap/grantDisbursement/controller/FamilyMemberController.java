@@ -23,7 +23,7 @@ public class FamilyMemberController {
     }
 
     @GetMapping("/getById/{familyMemberId}")
-    public FamilyMember getFamilyMemberById(String familyMemberId){
+    public FamilyMember getFamilyMemberById(@PathVariable String familyMemberId){
         return familyMemberService.getFamilyMemberById(familyMemberId);
     }
 
@@ -33,12 +33,12 @@ public class FamilyMemberController {
     }
 
     @DeleteMapping("/delete/{familyMemberId}")
-    public void deleteFamilyMemberById(String familyMemberId){
+    public void deleteFamilyMemberById(@PathVariable String familyMemberId){
         familyMemberService.deleteFamilyMemberById(familyMemberId);
     }
 
     @PutMapping("update/{familyMemberId}")
-    public FamilyMember updateFamilyMember(String familyMemberId, FamilyMember updatedDetails){
+    public FamilyMember updateFamilyMember(@PathVariable String familyMemberId, @RequestBody FamilyMember updatedDetails){
         return familyMemberService.updateFamilyMember(familyMemberId, updatedDetails);
 
     }

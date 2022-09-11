@@ -3,6 +3,7 @@ package com.meteortap.grantDisbursement.service;
 
 
 import com.meteortap.grantDisbursement.document.FamilyMember;
+import com.meteortap.grantDisbursement.document.Household;
 import com.meteortap.grantDisbursement.exception.ResourceNotFoundException;
 import com.meteortap.grantDisbursement.repository.FamilyMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ public class FamilyMemberService {
 
     @Autowired
     private FamilyMemberRepository familyMemberRepository;
+    @Autowired
+    private HouseholdService householdService;
 
     public List<FamilyMember> getAllFamilyMembers() {
         return familyMemberRepository.findAll();
@@ -38,6 +41,12 @@ public class FamilyMemberService {
     public FamilyMember updateFamilyMember(String familyMemberId, FamilyMember updatedDetails) {
         FamilyMember updateFamilyMember = familyMemberRepository.findById(familyMemberId)
                 .orElseThrow(()-> new ResourceNotFoundException("FamilyMember with id:"+familyMemberId+" does not exist"));
+
+        //If income has changed, update the household income
+        if (updatedDetails.getAnnualIncome()!=updateFamilyMember.getAnnualIncome()){
+            Household household = householdService.getHouseholdByMember(familyMemberId);
+            household.setHouseholdIncome(household.getHouseholdIncome()-updateFamilyMember.getAnnualIncome()+updatedDetails.getAnnualIncome());
+        }
 
         updateFamilyMember.setAnnualIncome(updatedDetails.getAnnualIncome());
         updateFamilyMember.setDob(updatedDetails.getDob());
