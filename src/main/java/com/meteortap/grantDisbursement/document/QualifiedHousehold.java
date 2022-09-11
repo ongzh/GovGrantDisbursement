@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class QualifiedHousehold{
 
     private List<FamilyMember> qualifiedMembers = new ArrayList<>();

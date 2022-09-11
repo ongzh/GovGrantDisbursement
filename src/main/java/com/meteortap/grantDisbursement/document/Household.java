@@ -14,6 +14,13 @@ import java.util.List;
 @Document("Households")
 public class Household {
 
+    public enum HouseholdType {
+        HDB,
+        CONDOMINIUM,
+        LANDED
+    }
+
+
     @Id
     private final String householdId;
 

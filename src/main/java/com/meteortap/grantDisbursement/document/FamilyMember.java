@@ -13,6 +13,24 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Document("FamilyMembers")
 public class FamilyMember {
+
+    public enum Occupation {
+        UNEMPLOYED,
+        STUDENT,
+        EMPLOYED
+    }
+
+    public enum Gender {
+        MALE,
+        FEMALE
+    }
+
+    public enum MaritalStatus {
+        SINGLE,
+        MARRIED
+    }
+
+
     @Id
     private final String familyMemberId;
 

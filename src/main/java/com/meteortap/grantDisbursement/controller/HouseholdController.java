@@ -30,6 +30,13 @@ public class HouseholdController {
     public Household getHouseholdByMember(@PathVariable String familyMemberId){
         return householdService.getHouseholdByMember(familyMemberId);
     }
+    /**
+     * get all households with  householdIncome < maxIncome
+     */
+    @GetMapping("/getHouseholdsByIncome/{income}")
+    public List<Household> getHouseholdsByIncome(@PathVariable String maxIncome){
+        return householdService.getHouseholdsByIncome(maxIncome);
+    }
 
     @PostMapping("/create")
     public Household createHousehold(@RequestBody Household household){

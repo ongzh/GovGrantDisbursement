@@ -7,6 +7,7 @@ import com.meteortap.grantDisbursement.repository.HouseholdRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -38,6 +39,18 @@ public class HouseholdService {
         throw new ResourceNotFoundException("familyMemberId does not belong to any household");
     }
 
+    public List<Household> getHouseholdsByIncome(String maxIncome) {
+        List<Household> households = new ArrayList<>();
+        double income = Double.parseDouble(maxIncome);
+        List<Household> allHouseholds = householdRepository.findAll();
+        for (Household household: allHouseholds){
+            if (household.getHouseholdIncome()<income){
+                households.add(household);
+            }
+        }
+        return households;
+    }
+
     public Household createHousehold(Household household) {
         return householdRepository.save(household);
     }
@@ -57,7 +70,5 @@ public class HouseholdService {
         return household;
 
     }
-
-
 
 }
