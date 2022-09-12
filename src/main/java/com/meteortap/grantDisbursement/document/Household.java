@@ -21,15 +21,6 @@ public class Household {
         LANDED
     }
 
-    public Household(String householdId, List<FamilyMember> members, HouseholdType householdType) {
-        this.householdId = householdId;
-        this.members = members;
-        this.householdType = householdType;
-        this.householdIncome = 0;
-        for (FamilyMember member: members){
-            this.householdIncome += member.getAnnualIncome();
-        }
-    }
 
 
     @Id
@@ -41,6 +32,14 @@ public class Household {
 
     private double householdIncome;
 
-
-
+    public double calculateHouseholdIncome() {
+        double calc = 0.0;
+        for (FamilyMember member : members) {
+            calc += member.getAnnualIncome();
+        }
+        return calc;
+    }
 }
+
+
+

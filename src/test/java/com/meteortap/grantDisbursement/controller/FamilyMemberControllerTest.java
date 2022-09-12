@@ -48,13 +48,13 @@ class FamilyMemberControllerTest {
     void setUp() {
 
          member1 = new FamilyMember("m1", "member1", FamilyMember.Gender.MALE, FamilyMember.Occupation.STUDENT,
-                FamilyMember.MaritalStatus.SINGLE, Optional.of("m2"), LocalDate.of(1980,02,13), 70000);
+                FamilyMember.MaritalStatus.SINGLE, "m2", LocalDate.of(1980,02,13), 70000);
 
          member2 = new FamilyMember("m2", "member2", FamilyMember.Gender.MALE, FamilyMember.Occupation.STUDENT,
-                FamilyMember.MaritalStatus.SINGLE, Optional.of("m1"), LocalDate.of(1980,02,13), 70000);
+                FamilyMember.MaritalStatus.SINGLE, "m1", LocalDate.of(1980,02,13), 70000);
 
          member3 = new FamilyMember("m3", "member3", FamilyMember.Gender.MALE, FamilyMember.Occupation.STUDENT,
-                FamilyMember.MaritalStatus.SINGLE, Optional.empty(), LocalDate.of(1980,02,13), 70000);
+                FamilyMember.MaritalStatus.SINGLE, "", LocalDate.of(1980,02,13), 70000);
 
         memberTest = List.of(member1,member2,member3);
     }
@@ -85,11 +85,11 @@ class FamilyMemberControllerTest {
     @Test
     void createFamilyMember() throws Exception {
         FamilyMember toPost = new FamilyMember(null, "memberToPost", FamilyMember.Gender.FEMALE,
-                FamilyMember.Occupation.STUDENT, FamilyMember.MaritalStatus.SINGLE, Optional.empty(),
+                FamilyMember.Occupation.STUDENT, FamilyMember.MaritalStatus.SINGLE, "",
                 LocalDate.of(2022,01,23),0);
 
         FamilyMember toReturn = new FamilyMember("postID", "memberToPost", FamilyMember.Gender.FEMALE,
-                FamilyMember.Occupation.STUDENT, FamilyMember.MaritalStatus.SINGLE, Optional.empty(),
+                FamilyMember.Occupation.STUDENT, FamilyMember.MaritalStatus.SINGLE, "",
                 LocalDate.of(2022,01,23),0);
 
         given(service.createFamilyMember(toPost)).willReturn(toReturn);

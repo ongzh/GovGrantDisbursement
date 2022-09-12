@@ -44,7 +44,7 @@ public class FamilyMember {
 
     private MaritalStatus maritalStatus;
 
-    private Optional<String> spouseId;
+    private String spouseId;
 
     private LocalDate dob;
 

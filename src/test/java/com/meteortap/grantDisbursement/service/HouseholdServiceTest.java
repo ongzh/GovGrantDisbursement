@@ -46,35 +46,35 @@ class HouseholdServiceTest {
     void setUp() {
         //<16, Student
         member1 = new FamilyMember("m1", "member1", FamilyMember.Gender.MALE, FamilyMember.Occupation.STUDENT,
-                FamilyMember.MaritalStatus.SINGLE, Optional.of("m2"),
+                FamilyMember.MaritalStatus.SINGLE, "m2",
                 LocalDate.of(2010,02,13), 0);
 
         member2 = new FamilyMember("m2", "member2", FamilyMember.Gender.FEMALE, FamilyMember.Occupation.EMPLOYED,
-                FamilyMember.MaritalStatus.SINGLE, Optional.of("m1"),
+                FamilyMember.MaritalStatus.SINGLE, "m1",
                 LocalDate.of(1980,02,13), 70000);
         //>55, unemployed
         member3 = new FamilyMember("m3", "member3", FamilyMember.Gender.MALE, FamilyMember.Occupation.UNEMPLOYED,
-                FamilyMember.MaritalStatus.SINGLE, Optional.empty(),
+                FamilyMember.MaritalStatus.SINGLE, "",
                 LocalDate.of(1950,02,13), 70000);
 
         member4 = new FamilyMember("m4", "member4", FamilyMember.Gender.FEMALE, FamilyMember.Occupation.STUDENT,
-                FamilyMember.MaritalStatus.SINGLE, Optional.empty(),
+                FamilyMember.MaritalStatus.SINGLE,"",
                 LocalDate.of(1980,02,13), 70000);
 
         //>55, unemployed
         member5 = new FamilyMember("m5", "member5", FamilyMember.Gender.FEMALE, FamilyMember.Occupation.UNEMPLOYED,
-                FamilyMember.MaritalStatus.SINGLE, Optional.empty(),
+                FamilyMember.MaritalStatus.SINGLE, "",
                 LocalDate.of(1950,02,13), 70000);
         //Baby
         member6 = new FamilyMember("m6", "member6", FamilyMember.Gender.FEMALE, FamilyMember.Occupation.UNEMPLOYED,
-                FamilyMember.MaritalStatus.SINGLE, Optional.empty(),
+                FamilyMember.MaritalStatus.SINGLE, "",
                 LocalDate.of(2022,05,13), 0);
 
-        household1 = new Household("h1", List.of(member1,member2), Household.HouseholdType.LANDED);
+        household1 = new Household("h1", List.of(member1,member2), Household.HouseholdType.LANDED, 70000);
 
-        household2 = new Household("h2", List.of(member3,member4), Household.HouseholdType.HDB);
+        household2 = new Household("h2", List.of(member3,member4), Household.HouseholdType.HDB, 140000);
 
-        household3 = new Household("h3", List.of(member5,member6), Household.HouseholdType.CONDOMINIUM);
+        household3 = new Household("h3", List.of(member5,member6), Household.HouseholdType.CONDOMINIUM, 140000);
 
         householdTest = List.of(household1,household2,household3);
     }

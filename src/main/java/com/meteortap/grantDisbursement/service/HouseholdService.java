@@ -57,6 +57,10 @@ public class HouseholdService {
     }
 
     public Household createHousehold(Household household) {
+
+        if (household.getHouseholdIncome()==0.0){
+            household.setHouseholdIncome(household.calculateHouseholdIncome());
+        }
         return householdRepository.save(household);
     }
 
