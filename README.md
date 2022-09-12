@@ -63,7 +63,7 @@ mvn clean test
 
 ### Assumptions
 * Each family member only belong to a single household
-* People are spouses with each other. i.e FamilyMember A with spouse B will result in FamilyMember B with spouse A
+* People are spouses with each other. i.e FamilyMemberA with spouseB will result in FamilyMemberB with spouseA
 ## License
 This project is available for use under the MIT License.
 
