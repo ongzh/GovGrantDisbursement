@@ -89,7 +89,7 @@ public class HouseholdService {
         household.getMembers().add(member);
 
         householdRepository.save(household);
-        
+
         return household;
     }
 }
