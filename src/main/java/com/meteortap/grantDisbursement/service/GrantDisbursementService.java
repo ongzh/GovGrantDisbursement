@@ -46,6 +46,10 @@ public class GrantDisbursementService {
 
         for (Household household: householdService.getAllHousehold()){
 
+            if (household.getHouseholdIncome()>150000){
+                continue;
+            }
+
             QualifiedHousehold qualifiedHousehold = new QualifiedHousehold();
             for (FamilyMember member: household.getMembers()){
                 if ((AgeCalculator.getAgeInYears(member.getDob())>55) || AgeCalculator.getAgeInYears(member.getDob())<18){
@@ -91,6 +95,7 @@ public class GrantDisbursementService {
             List<FamilyMember> qualifiedMembers = new ArrayList<>();
             for (FamilyMember member: household.getMembers()){
                 if (AgeCalculator.getAgeInMonths(member.getDob())<8){
+                    System.out.println(AgeCalculator.getAgeInMonths(member.getDob()));
                     qualifiedMembers.add(member);
                 }
             }

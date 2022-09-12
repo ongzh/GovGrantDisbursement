@@ -16,4 +16,5 @@ public class QualifiedHousehold{
     private List<FamilyMember> qualifiedMembers = new ArrayList<>();
 
     private Household household;
+
 }

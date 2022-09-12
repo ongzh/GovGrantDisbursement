@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/FamilyMember")
+@RequestMapping("/api/familyMember")
 public class FamilyMemberController {
 
     @Autowired

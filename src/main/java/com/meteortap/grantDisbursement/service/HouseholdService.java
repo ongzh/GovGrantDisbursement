@@ -27,6 +27,10 @@ public class HouseholdService {
 
     //To improve time complexity/performance, an alternative approach can be to store houseHoldId in each familyMember
     public Household getHouseholdByMember(String familyMemberId) throws ResourceNotFoundException{
+
+        return householdRepository.findHouseholdByFamilyMember(familyMemberId);
+        //To improve time complexity/performance, an alternative approach can be to store houseHoldId in each familyMember
+        /*
         List<Household> allHouseholds = householdRepository.findAll();
 
         for (Household h: allHouseholds){
@@ -37,6 +41,8 @@ public class HouseholdService {
             }
         }
         throw new ResourceNotFoundException("familyMemberId does not belong to any household");
+
+         */
     }
 
     public List<Household> getHouseholdsByIncome(String maxIncome) {
@@ -65,7 +71,9 @@ public class HouseholdService {
 
         household.setHouseholdType(updatedDetails.getHouseholdType());
         household.setHouseholdIncome(updatedDetails.getHouseholdIncome());
-        household.setMembers(household.getMembers());
+        household.setMembers(updatedDetails.getMembers());
+
+        householdRepository.save(household);
 
         return household;
 

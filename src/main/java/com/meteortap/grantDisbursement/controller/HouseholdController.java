@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/Household")
+@RequestMapping("/api/household")
 public class HouseholdController {
 
     @Autowired
@@ -44,8 +44,8 @@ public class HouseholdController {
     }
 
     @DeleteMapping("/delete/{householdId}")
-    public void deleteHouseholdById(@PathVariable String familyMemberId){
-        householdService.deleteHouseholdById(familyMemberId);
+    public void deleteHouseholdById(@PathVariable String householdId){
+        householdService.deleteHouseholdById(householdId);
     }
 
     @PutMapping("update/{householdId}")

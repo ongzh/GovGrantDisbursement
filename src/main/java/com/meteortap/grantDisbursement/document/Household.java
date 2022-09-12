@@ -11,6 +11,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Document("Households")
 public class Household {
 
@@ -20,14 +21,26 @@ public class Household {
         LANDED
     }
 
+    public Household(String householdId, List<FamilyMember> members, HouseholdType householdType) {
+        this.householdId = householdId;
+        this.members = members;
+        this.householdType = householdType;
+        this.householdIncome = 0;
+        for (FamilyMember member: members){
+            this.householdIncome += member.getAnnualIncome();
+        }
+    }
+
 
     @Id
-    private final String householdId;
+    private String householdId;
 
     private List<FamilyMember> members;
 
     private HouseholdType householdType;
 
     private double householdIncome;
+
+
 
 }

@@ -53,7 +53,7 @@ public class FamilyMemberService {
         updateFamilyMember.setGender(updatedDetails.getGender());
         updateFamilyMember.setName(updatedDetails.getName());
         updateFamilyMember.setMaritalStatus(updatedDetails.getMaritalStatus());
-        updateFamilyMember.setSpouseName(updatedDetails.getSpouseName());
+        updateFamilyMember.setSpouseId(updatedDetails.getSpouseId());
         updateFamilyMember.setOccupation(updatedDetails.getOccupation());
 
         return familyMemberRepository.save(updateFamilyMember);

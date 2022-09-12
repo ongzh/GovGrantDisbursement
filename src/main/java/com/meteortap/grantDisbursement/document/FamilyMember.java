@@ -8,9 +8,11 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Document("FamilyMembers")
 public class FamilyMember {
 
@@ -32,7 +34,7 @@ public class FamilyMember {
 
 
     @Id
-    private final String familyMemberId;
+    private String familyMemberId;
 
     private String name;
 
@@ -42,7 +44,7 @@ public class FamilyMember {
 
     private MaritalStatus maritalStatus;
 
-    private String spouseName;
+    private Optional<String> spouseId;
 
     private LocalDate dob;
 

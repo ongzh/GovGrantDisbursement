@@ -17,7 +17,7 @@ public class AgeCalculator {
 
     public static int getAgeInMonths(LocalDate dob) {
         if (dob != null) {
-            return Period.between(dob, LocalDate.now()).getMonths();
+            return Period.between(dob, LocalDate.now()).getMonths() + Period.between(dob, LocalDate.now()).getYears();
         } else {
             return 0;
         }
