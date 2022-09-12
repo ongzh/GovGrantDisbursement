@@ -99,8 +99,8 @@ class HouseholdServiceTest {
 
     @Test
     void getHouseholdByMember() {
-        given(repository.findHouseholdByFamilyMember("m5")).willReturn(household3);
-        Household household = repository.findHouseholdByFamilyMember("m5");
+        given(repository.findAll()).willReturn(householdTest);
+        Household household = service.getHouseholdByMember("m5");
         assertThat(household).isNotNull();
         assertEquals(household.getMembers().size(), household3.getMembers().size());
         assertEquals(household.getHouseholdType(), household3.getHouseholdType());

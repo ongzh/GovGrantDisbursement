@@ -108,7 +108,7 @@ class HouseholdControllerTest {
     @Test
     void getHouseholdByMember() throws Exception {
         given(service.getHouseholdByMember("m1")).willReturn((household1));
-        mvc.perform(get("/api/household/getById/h1")
+        mvc.perform(get("/api/household/getByMember/m1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.householdId", is("h1")));
