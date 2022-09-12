@@ -82,4 +82,14 @@ public class HouseholdService {
 
     }
 
+    public Household addMemberToHousehold(String householdId, FamilyMember member) {
+        Household household = householdRepository.findById(householdId)
+                .orElseThrow(()-> new ResourceNotFoundException("Household with id:"+householdId+" does not exist"));
+
+        household.getMembers().add(member);
+
+        householdRepository.save(household);
+        
+        return household;
+    }
 }

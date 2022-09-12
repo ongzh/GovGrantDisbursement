@@ -1,6 +1,7 @@
 package com.meteortap.grantDisbursement.controller;
 
 
+import com.meteortap.grantDisbursement.document.FamilyMember;
 import com.meteortap.grantDisbursement.document.Household;
 import com.meteortap.grantDisbursement.document.Household;
 import com.meteortap.grantDisbursement.service.HouseholdService;
@@ -51,9 +52,12 @@ public class HouseholdController {
     @PutMapping("update/{householdId}")
     public Household updateHousehold(@PathVariable String householdId, @RequestBody Household updatedDetails){
         return householdService.updateHousehold(householdId, updatedDetails);
-
     }
 
+    @PutMapping("addMember/{householdId}")
+    public Household addMemberToHousehold(@PathVariable String householdId, @RequestBody FamilyMember member){
+        return householdService.addMemberToHousehold(householdId, member);
+    }
 
 
 }
