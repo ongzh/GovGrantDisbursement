@@ -1,5 +1,6 @@
 # GovGrantDisbursement
 RESTful API that would help decide on groups of people who are eligible for various upcoming government grants.
+Built using Java, Spring Boot and MongoDB
 
 ## Getting Started
 
